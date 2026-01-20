@@ -2,10 +2,10 @@
 node_modules/
 dist/
 
-# Environment
+# Environment (keep .env.production for Vite build)
 .env
 .env.local
-.env.production
+!.env.production
 
 # IDE
 .idea/
