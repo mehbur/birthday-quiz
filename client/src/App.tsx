@@ -8,7 +8,12 @@ import './index.css';
 // ============================================
 // Production: Use environment variable, Development: localhost
 const SERVER_URL = import.meta.env.VITE_SERVER_URL || 'http://localhost:3001';
-const socket: Socket = io(SERVER_URL, { autoConnect: false });
+console.log('Connecting to server:', SERVER_URL);
+const socket: Socket = io(SERVER_URL, {
+  autoConnect: false,
+  transports: ['polling', 'websocket'], // Start with polling for better compatibility
+  withCredentials: true,
+});
 
 // ============================================
 // TYPES
